@@ -89,9 +89,7 @@ plume.stats = data.frame(
 	flex.sd.height = rep(NA, nn.t),
 	icon.sd.lon = rep(NA, nn.t),
 	icon.sd.lat = rep(NA, nn.t),
-	icon.sd.height = rep(NA, nn.t),
-	flex.vertical.mean=rep(NA, nn.t),
-	icon.vertical.mean=rep(NA, nn.t)
+	icon.sd.height = rep(NA, nn.t)
 	)
 
 
@@ -194,9 +192,6 @@ for (ii in 1:nn.t){
 	plume.stats$dist.hor[ii] = sphere.distance(icon$cntr.lat, icon$cntr.lon, flex$cntr.lat, 
 		flex$cntr.lon)
 	plume.stats$dist.vert[ii] = flex$cntr.height - icon$cntr.height 
-	plume.stats$flex.vertical.mean[ii] = apply(flex$zz,1:2,mean)
-	plume.stats$icon.vertical.mean[ii] = apply(icon$zz,1:2,mean)
-
 	plume.stats$flex.cm.lon[ii] = flex$cntr.lon
 	plume.stats$flex.cm.lat[ii] = flex$cntr.lat
 	plume.stats$flex.cm.height[ii] = flex$cntr.height
