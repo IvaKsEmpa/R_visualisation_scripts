@@ -8,29 +8,29 @@ require(ncdf4)
 #	SETTINGS
 #####################################################################
 case = "20181221" # "150418"
-interpolation = "nnb" #"rbf" #"byc" #"rbf" # "nnb"
+interpolation = "byc" #"rbf" #"byc" #"rbf" # "nnb"
 
 icon.dir = file.path("/project/ivme/MCH-1/icon-art-BRM/icon_scripts_output_code/icon_art_output", 
 	case,"structured") # "structured")
 
-icon.pattern = "ICON-ART-OEM_211218CDO_DOM01_*"
+icon.pattern = "ICON-ART-OEM_*"
 
 icon.var = "testtr212"
 
 flex.dir = file.path("/project/ivme/MCH-1/icon-art-BRM-CDO", 
-	paste0("fp_output_", interpolation, "_interpolation"), case)
+	paste0("fp_hanna82_output_", interpolation, "_interpolation"), case)
 
-flex.pattern = "grid_conc_20181221110000.nc"
+flex.pattern = paste0("grid_conc_",case,"110000.nc")
 
 tidx = 3	#	use tidx to get output for specific time 1: 1 hour after start, etc
 rel.com = "BEROMUENSTER 212"
 
-out.dir ="/project/ivme/MCH-1/icon-art-BRM-CDO/fp_output_nnb_interpolation/20181221/images/plume_compare"
+out.dir =paste0("/project/ivme/MCH-1/icon-art-BRM-CDO/fp_hanna82_output_",interpolation,"_interpolation/",case,"/images/plume_compare")
 
 zlim = c(1, 1E5)
 mu.tracer = 28.97	#	in the xml file for the icon run it says 6.4E-2. I assume this means kg/mol. g/mol would not make sense. No such molecule exists. 
 
-levels = c(5,15)		#	level to be plotted, counted from t:he bottom
+levels = c(5)		#	level to be plotted, counted from t:he bottom
 
 #	constants
 mu.air = 28.97
@@ -210,7 +210,7 @@ for (ii in 1:nn.t){
 	#	concentration plot for both models with same color scale and different levels
 	###################################################################################
 	fn.png = file.path(out.dir, interpolation, 
-		paste0("multiLevel_concentration_", interpolation, "_", 
+		paste0("cut_multiLevel_concentration_", interpolation, "_", 
 			chron.2.string(flex.out.dtm[ii], "%Y%m%d_%H")) )
 	open.graphics.device(fn.png, width=15, height=5*length(levels), pointsize=10)
 	par(lwd=0.5)
@@ -254,7 +254,7 @@ for (ii in 1:nn.t){
 	#	concentration difference plot 
 	###################################################################################
 	fn.png = file.path(out.dir, interpolation, 
-		paste0("multiLevel_concentrationDifferences_", interpolation, "_", 
+		paste0("cut_multiLevel_concentrationDifferences_", interpolation, "_", 
 			chron.2.string(flex.out.dtm[ii], "%Y%m%d_%H")) )
 	open.graphics.device(fn.png, width=8.5, height=5*length(levels), pointsize=7.5)
 	par(lwd=0.5)

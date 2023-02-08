@@ -6,11 +6,11 @@ require(ncdf4)
 
 #	SETTINGS
 
-flex.dir = "/project/ivme/MCH-1/icon-art-BRM-CDO/fp_output_nnb_interpolation/211218"
-flex2.dir = "/project/ivme/MCH-1/icon-art-BRM-CDO/fp_output_rbf_interpolation/211218"
-flex3.dir = "/project/ivme/MCH-1/icon-art-BRM-CDO/fp_output_byc_interpolation/211218"
-flex.fn = "grid_conc_20181221110000.nc"
-tidx =2	#	use tidx to get output for specific time 1: 1 hour after start, etc
+flex.dir = "/project/ivme/MCH-1/icon-art-BRM-CDO/fp_output_nnb_interpolation/20180525"
+flex2.dir = "/project/ivme/MCH-1/icon-art-BRM-CDO/fp_output_rbf_interpolation/20180525"
+flex3.dir = "/project/ivme/MCH-1/icon-art-BRM-CDO/fp_output_byc_interpolation/20180525"
+flex.fn = "grid_conc_20180525110000.nc"
+tidx =6	#	use tidx to get output for specific time 1: 1 hour after start, etc
 
 xlim = c(7.75,11)
 ylim = c(47., 48.75)
@@ -62,7 +62,7 @@ fill.2dplot(flex2, para="conc", xlim=xlim, ylim=ylim, zlim=zlim, lev=level, log.
 #	'myRtools'. The 3D field is stored as icon$zz.  
 
 #	single plot for both models with one color scale
-png(paste0("/project/ivme/MCH-1/icon-art-BRM-CDO/3interpolations_comparison_211218_13h_level_",level,".png"), height=12, width=24, units="cm", res=800)
+png(paste0("/project/ivme/MCH-1/icon-art-BRM-CDO/3interpolations_comparison_25058_13h_level_",level,".png"), height=12, width=24, units="cm", res=800)
 layout(matrix(1:3, ncol=3), widths=c(1,1,lcm(2)))
 par(mar=c(4,4,2,1)+.1)
 # my_rmse = rmse(icon$zz, flex$conc, na.rm = FALSE)

@@ -13,7 +13,7 @@ interpolation = "nnb" #"rbf" #"byc" #"rbf" # "nnb"
 icon.dir = file.path("/project/ivme/MCH-1/icon-art-BRM/icon_scripts_output_code/icon_art_output", 
 	case,"structured") # "structured")
 
-icon.pattern = "ICON-ART-OEM_211218CDO_DOM01_*"
+icon.pattern = "ICON-ART-OEM*"
 
 icon.var = "testtr212"
 

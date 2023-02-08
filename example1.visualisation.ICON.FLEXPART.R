@@ -6,16 +6,16 @@ require(ncdf4)
 
 #	SETTINGS
 
-icon.dir = "/project/ivme/MCH-1/icon-art-BRM/icon_scripts_output_code/icon_art_output/150418/structured/"
-icon.fn = "ICON-ART-OEM_1504CDO_wsnow0_DOM01_00140000.nc"		#	file name gives time after release
+icon.dir = "/project/ivme/MCH-1/icon-art-BRM/icon_scripts_output_code/icon_art_output/20180525/structured/"
+icon.fn = "ICON-ART-OEM_250518CDO_DOM01_00170000.nc"		#	file name gives time after release
 icon.var = "testtr12"
 
-flex.dir = "/project/ivme/MCH-1/icon-art-BRM-CDO/fp_output_nnb_interpolation/150418"
-flex.fn = "grid_conc_20180415110000.nc"
-tidx =3	#	use tidx to get output for specific time 1: 1 hour after start, etc
+flex.dir = "/project/ivme/MCH-1/icon-art-BRM-CDO/fp_output_byc_interpolation/20180525"
+flex.fn = "grid_conc_20180525110000.nc"
+tidx =6	#	use tidx to get output for specific time 1: 1 hour after start, etc
 
-xlim = c(7.,9.)
-ylim = c(46.75, 47.75)
+xlim = c(7.,8.5)
+ylim = c(46.75, 47.3)
 zlim = c(1E1, 1E4)
 mu.tracer = 28.97	#	in the xml file for the icon run it says 6.4E-2. I assume this means kg/mol. g/mol would not make sense. No such molecule exists. 
 
@@ -62,7 +62,7 @@ fill.2dplot(icon, xlim=xlim, ylim=ylim, zlim=zlim, lev=level, log.scale=TRUE, bo
 
 
 #	single plot for both models with one color scale
-png(paste0("/project/ivme/MCH-1/icon-art-BRM-CDO/fp_output_nnb_interpolation/150418/images/cdo_nnb_150418_14h_level_",level,".png"), height=12, width=24, units="cm", res=800)
+png(paste0("/project/ivme/MCH-1/icon-art-BRM-CDO/fp_output_byc_interpolation/20180525/images/cdo_byc_250518_17h_level_",level,".png"), height=12, width=24, units="cm", res=800)
 layout(matrix(1:3, ncol=3), widths=c(1,1,lcm(2)))
 par(mar=c(4,4,2,1)+.1)
 # my_rmse = rmse(icon$zz, flex$conc, na.rm = FALSE)

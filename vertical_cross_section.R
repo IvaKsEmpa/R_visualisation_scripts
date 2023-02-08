@@ -8,7 +8,7 @@ require(ncdf4)
 #	SETTINGS
 #####################################################################
 case = "20180525" # "151018" # "150418"
-interpolation = "nnb" #"rbf" #"byc" #"rbf" # "nnb"
+interpolation = "byc" #"rbf" #"byc" #"rbf" # "nnb"
 
 icon.dir = file.path("/project/ivme/MCH-1/icon-art-BRM/icon_scripts_output_code/icon_art_output", 
 	case, "structured")
@@ -17,12 +17,12 @@ icon.pattern = "ICON-ART-OEM_250518CDO_DOM01_[0-9]*.nc"
 icon.var = "testtr212"
 
 flex.dir = file.path("/project/ivme/MCH-1/icon-art-BRM-CDO", 
-	paste0("fp_output_", interpolation, "_interpolation"), case)
+	paste0("fp_hanna82_output_", interpolation, "_interpolation"), case)
 flex.pattern = "grid_conc_[0-9]*.nc"
 tidx = 3	#	use tidx to get output for specific time 1: 1 hour after start, etc
 rel.com = "BEROMUENSTER 212"
 
-out.dir ="/project/ivme/MCH-1/icon-art-BRM-CDO/fp_output_nnb_interpolation/20180525/images/plume_compare"
+out.dir =paste0("/project/ivme/MCH-1/icon-art-BRM-CDO/fp_hanna82_output_",interpolation,"_interpolation/",case,"/images/plume_compare")
 
 
 
